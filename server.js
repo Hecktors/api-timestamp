@@ -1,3 +1,6 @@
+// server.js
+// where your node app starts
+
 // init project
 var express = require('express');
 var app = express();
@@ -32,12 +35,15 @@ app.get("/api/timestamp/:date_string", function (req, res) {
   if (isNaN(Number(dateString))) {
     date = new Date(dateString);
   } else {
+    // convert unixTimestamp (seconds) to date format (miliseconds required)
     date = new Date(dateString * 1000);
+    // convert to string, divide by 1000, back to date
+    date = new Date(date.getTime() / 1000);
   }
 
   // check validation of date
   if (isNaN(date)) {
-    res.status(400).json({ "error": "Invalid Date" });
+    res.json({ "error": "Invalid Date" });
   } else {
     res.json({ "unix": date.getTime(), "utc": date.toUTCString() });
   }
