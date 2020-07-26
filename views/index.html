@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Timestamp Microservice</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>API Project: Timestamp Microservice</h2>
+    <ol class="user-stories">
+      <li>
+        The API endpoint is <code>GET [project_url]/api/timestamp/:date_string?</code>
+      </li>
+      <li>
+        If the date string is <strong>empty</strong> it triggers <code>new Date()</code>.
+      </li>
+      <li>
+        If the date string is <strong>valid</strong> the api returns a JSON having the structure<br>
+        <code>{"unix": &lt;date.getTime()&gt;, "utc" : &lt;date.toUTCString()&gt; }</code>.
+      </li>
+      <li>
+        If the date string is <strong>invalid</strong> the api returns a JSON having the structure<br>
+        <code>{"error" : "Invalid Date" }</code>.
+      </li>
+    </ol>
+    <h4>Example usage:</h4>
+    <ul>
+      <li><a href="https://uneven-mini-columnist.glitch.me/api/timestamp/2020-12-24"
+          targe="_blank">https://uneven-mini-columnist.glitch.me/api/timestamp/2020-12-24</a></li>
+      <li><a href="https://uneven-mini-columnist.glitch.me/api/timestamp/1608768000000"
+          targe="_blank">https://uneven-mini-columnist.glitch.me/api/timestamp/1608768000000</a></li>
+    </ul>
+    <h4>Example output:</h4>
+    <ul>
+      <li>{"unix":1608768000000,"utc":"Thu, 24 Dec 2020 00:00:00 GMT"}</li>
+    </ul>
+  </div>
+</body>
+
+</html>
